@@ -1,17 +1,12 @@
 import './style.css';
-import * as apiControl from './apiControl.js';
+import * as coreControl from './coreControl.js';
 
-let location = 'los angeles';
-location = apiControl.encodeLocation(location);
+async function run() {
+  let inF = await coreControl.getWeatherData('los angeles');
+  console.log(inF); // doesn't print in f for some reason
 
-let date1 = new Date();
-date1 = apiControl.encodeDate(date1);
+  let inC = coreControl.swapTempUnitTo('c');
+  console.log(inC);
+}
 
-let date2 = (() => {
-  const d = new Date();
-  d.setDate(d.getDate() + 2);
-  return d;
-})();
-date2 = apiControl.encodeDate(date2);
-
-apiControl.fetchRawData(location, date1, date2)
+run();
