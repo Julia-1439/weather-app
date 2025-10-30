@@ -17,7 +17,7 @@ const BASE_URL = 'https://weather.visualcrossing.com/VisualCrossingWebServices/r
  * @param {String} date2 optional Date object pre-processed with encodeDate. Should only
  * be provided if `date1` is also provided
  */
-async function fetchRawData(location, date1 = '', date2 = '') {
+async function fetchData(location, date1 = '', date2 = '') {
   // request the api
   const url = BASE_URL
     + `/${location}` 
@@ -31,7 +31,6 @@ async function fetchRawData(location, date1 = '', date2 = '') {
     throw new Error(`${response.status}: ${errorMsg}`);
   }
   const rawData = await response.json();
-  console.log(rawData);
   return rawData;
 }
 
@@ -54,7 +53,7 @@ function encodeDate(date) {
 }
 
 export { 
-  fetchRawData,
+  fetchData,
   encodeLocation,
   encodeDate,
 };
