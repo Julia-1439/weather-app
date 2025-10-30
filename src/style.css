@@ -1,0 +1,37 @@
+/* ========================================================================== */
+/* Reset */
+/* ========================================================================== */
+
+img {
+  max-width: 100%;
+}
+
+/* ========================================================================== */
+/* Main Styling */
+/* ========================================================================== */
+
+form .error-msg {
+  height: 1rem;
+  color: red;
+}
+
+form .loading-container {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.weather-card {
+  max-width: 360px;
+  border: 1px solid black;
+}
+
+.weather-card .middle {
+  display: grid;
+  grid-template: 1fr / repeat(2, 1fr);
+}
+
+.weather-card .stats {
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+}
