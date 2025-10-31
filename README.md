@@ -30,5 +30,6 @@ credits:
       <li>MDN: Reponse object: https://developer.mozilla.org/en-US/docs/Web/API/Response</li>
       <li>getting data from a ReadableStream: https://stackoverflow.com/questions/40385133/retrieve-data-from-a-readablestream-object</li>
       <li>streaming data from a ReadableStream (unused): https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#streaming_the_response_body</li>
+      <li>new lines in .textContent: https://stackoverflow.com/questions/9980416/how-can-i-insert-new-line-carriage-returns-into-an-element-textcontent</li>
   </ul>
 </details>
