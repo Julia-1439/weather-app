@@ -1,9 +1,25 @@
 import { format as dateFormatter } from 'date-fns';
+import { swapTempUnitTo } from '../coreControl.js';
 
 const container = document.querySelector('#content');
+const fTempBtn = document.querySelector('#f-temp-btn');
+const cTempBtn = document.querySelector('#c-temp-btn');
 
-function wipeContainer() {
+fTempBtn.addEventListener('click', () => {
+  const data = swapTempUnitTo('f');
+  if (data) 
+    render(data);
+});
+
+cTempBtn.addEventListener('click', () => {
+  const data = swapTempUnitTo('c');
+  if (data) 
+    render(data);
+});
+
+async function render(data) {
   container.replaceChildren();
+  data.forEach(renderDay);
 }
 
 async function renderDay(data) {
@@ -66,6 +82,5 @@ async function renderDay(data) {
 }
 
 export {
-  wipeContainer,
-  renderDay,
+  render,
 };

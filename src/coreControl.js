@@ -1,11 +1,6 @@
 import * as apiControl from './apiControl.js';
 
-const currData = [];
-
-function postWeatherData(data) {
-  currData.length = 0;
-  data.forEach((day) => currData.push(day));
-}
+let currData = [];
 
 function readWeatherData() {
   return [...currData];
@@ -24,7 +19,7 @@ async function getWeatherData(location) {
     });
   const processedData = rawData.days.map(processDayData);
 
-  postWeatherData(processedData);
+  currData = [...processedData];
   return readWeatherData();
 
   function processDayData(data) {
@@ -39,18 +34,21 @@ async function getWeatherData(location) {
 }
 
 function swapTempUnitTo(unit) {
-  const data = readWeatherData();
+  if (currData.length === 0) 
+    return;
+  if (currData[0].tempunit === unit) 
+    return;
+  
   const converter = {
     'c': convertToCelsius,
     'f': convertToFahrenheit,
   }[unit];
-
-  data.forEach((day) => {
+  currData.forEach((day) => {
     day.tempmax = converter(day.tempmax);
     day.tempmin = converter(day.tempmin);
+    day.tempunit = unit;
   });
 
-  postWeatherData(data);
   return readWeatherData();
 
   function convertToCelsius(tempF) {

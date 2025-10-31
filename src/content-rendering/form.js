@@ -12,10 +12,7 @@ form.addEventListener('submit', async (evt) => {
   loadingAnimation.render();
   const location = new FormData(form).get('location');
   const data = await coreControl.getWeatherData(location)
-    .then((data) => {
-      weatherData.wipeContainer();
-      data.forEach(weatherData.renderDay);
-    })
+    .then(weatherData.render)
     .catch((error) => renderErrorMessage(error.message))
     .finally(loadingAnimation.remove);
 
