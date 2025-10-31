@@ -1,16 +1,33 @@
+/**
+ * The skeleton of the app - what you would see if the display/CSS were wiped 
+ * away. Holds the last fetched weather data and defines the interactive 
+ * features of the app. 
+ * @module coreControl
+ */
+
 import * as apiControl from './apiControl.js';
 
 let currData = [];
+const NUM_DAYS_IN_ADVANCE = 2;
 
+/**
+ * 
+ * @returns {Array} a copy of the current data in storage
+ */
 function readWeatherData() {
   return [...currData];
 }
 
+/**
+ * 
+ * @param {String} location, can take straight from the form in raw form
+ * @returns {Array} a copy of the weather data fetched
+ */
 async function getWeatherData(location) {
   location = apiControl.encodeLocation(location);
   
   let date1 = new Date();
-  let date2 = new Date().setDate(new Date().getDate() + 2); // 2 days from now
+  let date2 = new Date().setDate(new Date().getDate() + NUM_DAYS_IN_ADVANCE);
   [date1, date2] = [date1, date2].map(apiControl.encodeDate);
   
   const rawData = await apiControl.fetchData(location, date1, date2)
@@ -37,6 +54,13 @@ async function getWeatherData(location) {
   }
 }
 
+/**
+ * 
+ * @param {String} unit, 'f' or 'c' 
+ * @returns {Array | undefined} a copy of the converted weather data, or 
+ * undefined if there's no data to work on or if current data is already in said
+ * unit. 
+ */
 function swapTempUnitTo(unit) {
   if (currData.length === 0) 
     return;

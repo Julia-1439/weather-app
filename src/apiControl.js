@@ -1,14 +1,14 @@
 /**
- * @module 
+ * Handles the API calls to Visual Crossing Weather API and provides utility 
+ * functions to construct the URL. 
+ * @module apiControl
  * @see https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/
- * 
- * Design choices: leave up the 3 day span thing to coreControl as that's more of an app-specific thing than an api thing
  */
 
 import { format as dateFormatter } from "date-fns";
 
-const KEY = 'QUBGK9LW8JFXX56B6NN3TH3M4';
 const BASE_URL = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline';
+const KEY = 'QUBGK9LW8JFXX56B6NN3TH3M4';
 
 /**
  * 
