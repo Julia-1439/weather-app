@@ -7,7 +7,7 @@ limitation: no confidentiality on the API key since it's public and we're not wo
 <strong>major concepts exercised:</strong> 
 - asynchronous code: promises, async/await
 - error handling for asynchronous code
-- fetching data from an API: reading its docs, url encoding, data processing, error handling
+- fetching data from an API: url encoding, data processing, error handling
 - OOP principles: single responsibility, separation of logic/loose coupling, open-closed principle, dependency inversion
 - simulate network speeds in devtools
 
