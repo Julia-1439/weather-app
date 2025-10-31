@@ -19,7 +19,7 @@ cTempBtn.addEventListener('click', () => {
 
 async function render(data) {
   container.replaceChildren();
-  data.forEach(renderDay);
+  data.forEach((dayData) => renderDay(dayData)); // `data.forEach(renderDay)` produces unsorted results, for some reason 
 }
 
 async function renderDay(data) {
@@ -30,7 +30,7 @@ async function renderDay(data) {
   header.classList.add('header');
   const date = document.createElement('span');
   date.classList.add('date');
-  date.textContent = dateFormatter(new Date(data.datetime), 'yyyy-MM-dd, EEEE');
+  date.textContent = data.datetime + dateFormatter(data.datetime, ', EEEE');
 
   const middle = document.createElement('div');
   middle.classList.add('middle');
@@ -76,7 +76,7 @@ async function renderDay(data) {
   tempMinContainer.append(tempMinPara, tempMin);
   precipContainer.append(precipPara, precip);
   precipProbContainer.append(precipProbPara, precipProb);
-  footer.append(description)
+  footer.append(description);
   card.append(header, middle, footer);
   container.append(card);
 }
