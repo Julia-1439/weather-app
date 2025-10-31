@@ -1,5 +1,5 @@
 import * as coreControl from '../coreControl.js';
-import * as widgets from './widgets.js';
+import * as loadingAnimation from './loadingAnimation.js';
 import * as weatherData from './weatherData.js';
 
 const form = document.querySelector('form');
@@ -9,7 +9,7 @@ form.addEventListener('submit', async (evt) => {
   evt.preventDefault();
   wipeErrorMessage();
 
-  widgets.renderLoadingAnimation();
+  loadingAnimation.render();
   const location = new FormData(form).get('location');
   const data = await coreControl.getWeatherData(location)
     .then((data) => {
@@ -17,7 +17,7 @@ form.addEventListener('submit', async (evt) => {
       data.forEach(weatherData.renderDay);
     })
     .catch((error) => renderErrorMessage(error.message))
-    .finally(widgets.wipeLoadingAnimation);
+    .finally(loadingAnimation.remove);
 
   form.reset();
 });
