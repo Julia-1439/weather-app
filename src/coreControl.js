@@ -19,6 +19,9 @@ async function getWeatherData(location) {
   [date1, date2] = [date1, date2].map(apiControl.encodeDate);
   
   const rawData = await apiControl.fetchData(location, date1, date2)
+    .catch((error) => { 
+      throw new Error(error.message); 
+    });
   const processedData = rawData.days.map(processDayData);
 
   postWeatherData(processedData);
