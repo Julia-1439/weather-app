@@ -2,6 +2,13 @@
 /* Reset */
 /* ========================================================================== */
 
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  --standard-padding: 16px; 
+}
+
 img {
   max-width: 100%;
 }
@@ -10,8 +17,18 @@ img {
 /* Main Styling */
 /* ========================================================================== */
 
+main {
+  width: min(1150px, 100%);
+  margin: auto;
+  padding: var(--standard-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 6px ridge lightgray;
+}
+
 form .error-msg {
-  height: 1rem;
+  min-height: 1.5rem;
   color: red;
 }
 
@@ -21,14 +38,37 @@ form .loading-container {
   height: 16px;
 }
 
+#content {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--standard-padding);
+}
+
 .weather-card {
-  max-width: 360px;
+  /* flex: auto; */
+  /* width: 360px; */
+  padding: var(--standard-padding);
   border: 1px solid black;
+}
+
+.weather-card .date {
+  font-weight: bold;
 }
 
 .weather-card .middle {
   display: grid;
   grid-template: 1fr / repeat(2, 1fr);
+}
+
+.weather-card .stat-header {
+  color: gray;
+}
+
+.weather-card .icon-container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
 }
 
 .weather-card .stats {

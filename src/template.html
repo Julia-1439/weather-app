@@ -6,21 +6,25 @@
     <title>Weather App</title>
   </head>
   <body>
-    <form>
-      <p>
-        <label for="location">Location</label>
-        <input type="text" name="location" id="location" required>
-        <button type="submit">Get Weather Data</button>
-        <span class="loading-container"></span>
-      </p>
-      <p class="error-msg">
-      </p>
-    </form>
-    <p>
-      <button type="button" id="f-temp-btn">°F</button>
-      <button type="button" id="c-temp-btn">°C</button>
-    </p>
-    <div id="content">
-    </div>
+    <main>
+      <div id="controls">
+        <form>
+          <p>
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location" required>
+            <button type="submit">Get Weather Data</button>
+            <span class="loading-container"></span>
+          </p>
+          <p class="error-msg">
+          </p>
+        </form>
+        <p>
+          <button type="button" id="f-temp-btn">°F</button>
+          <button type="button" id="c-temp-btn">°C</button>
+        </p>
+      </div>
+      <div id="content">
+      </div>
+    </main>
   </body>
 </html>
