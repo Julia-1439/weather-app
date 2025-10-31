@@ -29,6 +29,7 @@ main {
 
 form .error-msg {
   min-height: 1.5rem;
+  white-space: pre;
   color: red;
 }
 

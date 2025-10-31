@@ -20,7 +20,8 @@ form.addEventListener('submit', async (evt) => {
 });
 
 function renderErrorMessage(msg) {
-  errorDisplay.textContent = msg;
+  errorDisplay.textContent = `${msg}\r\n`;
+  errorDisplay.textContent += '(Try entering a valid address or postal code.)';
 }
 
 function wipeErrorMessage() { 
