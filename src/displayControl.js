@@ -1,6 +1,4 @@
+import './style.css';
 import './content-rendering/form.js';
 import './content-rendering/weatherData.js';
-
-window.addEventListener("load", () => {
-
-});
+import './content-rendering/loadingAnimation.js';
