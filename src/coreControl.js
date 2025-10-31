@@ -17,17 +17,21 @@ async function getWeatherData(location) {
     .catch((error) => { 
       throw new Error(error.message); 
     });
-  const processedData = rawData.days.map(processDayData);
+  const processedData = processData(rawData);
 
   currData = [...processedData];
   return readWeatherData();
 
-  function processDayData(data) {
+  function processData(rawData) {
     const desiredProps = ['datetime', 'tempmax', 'tempmin', 'precip', 'precipprob', 'description', 'icon'];
-    const processedData = Object.fromEntries(
-      Object.entries(data).filter(([key, _]) => desiredProps.includes(key))
-    ); // filter the day's data based on `desiredProps`
-    processedData.tempunit = 'f';
+    const processedData = rawData.days.map((dayData) => {
+      let working;
+      working = Object.fromEntries( // filter the day's data based on `desiredProps`
+        Object.entries(dayData).filter(([key, _]) => desiredProps.includes(key))
+      ); 
+      working.tempunit = 'f';
+      return working;
+    })
 
     return processedData;
   }
