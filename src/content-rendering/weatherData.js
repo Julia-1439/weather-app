@@ -1,18 +1,18 @@
 import { format as dateFormatter } from 'date-fns';
-import { swapTempUnitTo } from '../coreControl.js';
+import * as coreControl from '../coreControl.js';
 
 const container = document.querySelector('#content');
 const fTempBtn = document.querySelector('#f-temp-btn');
 const cTempBtn = document.querySelector('#c-temp-btn');
 
 fTempBtn.addEventListener('click', () => {
-  const data = swapTempUnitTo('f');
+  const data = coreControl.swapTempUnitTo('f');
   if (data) 
     render(data);
 });
 
 cTempBtn.addEventListener('click', () => {
-  const data = swapTempUnitTo('c');
+  const data = coreControl.swapTempUnitTo('c');
   if (data) 
     render(data);
 });
