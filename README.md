@@ -1,17 +1,17 @@
 # weather-app
 
-A basic webpage to fetch and display weather data from an API. Displays to the user any errors thrown by the API.
+A basic webpage to fetch and display weather data from an API and any errors thrown. 
 
-limitation: no confidentiality on the API key since we're not working with servers yet. 
+limitation: no confidentiality on the API key since it's public and we're not working with servers yet. 
 
 <strong>major concepts exercised:</strong> 
 - asynchronous code: promises, async/await
 - error handling for asynchronous code
 - fetching data from an API: reading its docs, url encoding, data processing, error handling
-- OOP principles
+- OOP principles: single responsibility, separation of logic/loose coupling, open-closed principle, dependency inversion
 - simulate network speeds in devtools
 
-dependency chart:
+dependency chart showing project organization: 
 
 <img src="./diagram.png" alt="diagram of modules and dependencies" style="width: 75%;"></img>
 
