@@ -32,6 +32,7 @@ async function getWeatherData(location) {
     const processedData = Object.fromEntries(
       Object.entries(data).filter(([key, _]) => desiredProps.includes(key))
     ); // filter the day's data based on `desiredProps`
+    processedData.tempunit = 'f';
 
     return processedData;
   }
