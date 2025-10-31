@@ -18,12 +18,12 @@ dependency chart showing project organization:
 credits:
 - [Visual Crossing Weather API](https://www.visualcrossing.com/weather-api/)
 - [Visual Crossing weather icons](https://github.com/visualcrossing/WeatherIcons/tree/main)
+- [Visual Crossing weather forecast example](https://www.visualcrossing.com/weather-forecast/united%20states/us/) (inspiration for the graphics)
 - [Tenor loading gif](https://media1.tenor.com/m/WX_LDjYUrMsAAAAC/loading.gif)
 
 <details>
   <summary>sources of help:</summary>
     <ul>
-      <li>example display: https://www.visualcrossing.com/weather-forecast/united%20states/us/</li>
       <li>api HTTP response codes: https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/#brxe-buhgdv</li>
       <li>encode url: https://stackoverflow.com/questions/332872/encode-url-in-javascript</li>
       <li>encodeURIComponent vs encodeURL: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent#description</li>
