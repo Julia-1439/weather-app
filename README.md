@@ -4,6 +4,8 @@ A basic webpage to fetch and display weather data from an API and any errors thr
 
 limitation: no confidentiality on the API key since it's public and we're not working with servers yet. 
 
+known bug: dates might appear out of order, and the weekday might have an off-by-one error. this is probably due to the way we call the Visual Crossing API and how the date-fns library works. one way to solve this is to normalize the timezone where dates are used.  
+
 <strong>major concepts exercised:</strong> 
 - asynchronous code: promises, async/await
 - error handling for asynchronous code
