@@ -30,7 +30,7 @@ async function renderDay(data) {
   card.classList.add('weather-card');
 
   const header = document.createElement('div')
-  header.classList.add('header');
+  header.classList.add('header', 'darkslategray');
   const date = document.createElement('p');
   date.classList.add('date');
   date.textContent = data.datetime + dateFormatter(data.datetime, ', EEEE');

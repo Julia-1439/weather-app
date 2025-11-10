@@ -37,6 +37,10 @@ main {
   box-shadow: 0px 2px 11px -3px darkgray;
 }
 
+.darkslategray {
+  color: darkslategray;
+}
+
 #controls {
   width: 40%;
   padding: var(--standard-padding);
@@ -91,7 +95,6 @@ form .loading-container {
 #resolved-address {
   font-weight: bold;
   font-size: 2rem;
-  color: darkslategray;
 }
 
 #weather-cards-container {
