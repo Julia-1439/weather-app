@@ -9,13 +9,20 @@
   --standard-padding: 16px; 
 }
 
-img {
+img,
+svg {
+  display: block;
   max-width: 100%;
 }
 
 /* ========================================================================== */
 /* Main Styling */
 /* ========================================================================== */
+
+body {
+  background: #aee8ee;
+  background: linear-gradient(91deg, rgba(174, 232, 238, 1) 0%, rgba(165, 217, 236, 1) 50%, rgba(148, 187, 233, 1) 100%);
+}
 
 main {
   width: min(1150px, 100%);
@@ -24,19 +31,61 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 6px ridge lightgray;
+  border: 2px solid lightgray;
+  border-radius: 15px;
+  background-color: rgba(256, 256, 256, 0.5);
+  box-shadow: 0px 2px 11px -3px darkgray;
+}
+
+#controls {
+  width: 40%;
+  padding: var(--standard-padding);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--standard-padding);
+  margin: 16px 0;
+}
+
+#search-row {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: 4px;
+}
+
+form [type="submit"] {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  border: 1px solid lightgray;
+  background-color: white;
+}
+
+#location {
+  height: 2rem;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid lightgray;
 }
 
 form .error-msg {
-  min-height: 1.5rem;
-  white-space: pre;
+  min-height: 2.5rem;
+  /* white-space: pre; */
   color: red;
 }
 
 form .loading-container {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
+  position: absolute;
+  top: 18%;
+}
+
+.temp-btn {
+  min-width: 60px;
+  border: 1px solid lightgray;
+  height: 2rem;
+  border-radius: 8px;
 }
 
 #content {
@@ -47,10 +96,10 @@ form .loading-container {
 }
 
 .weather-card {
-  /* flex: auto; */
-  /* width: 360px; */
   padding: var(--standard-padding);
-  border: 1px solid black;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
 }
 
 .weather-card .date {
