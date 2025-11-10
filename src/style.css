@@ -42,6 +42,7 @@ main {
 }
 
 #controls {
+  min-width: min-content;
   width: 40%;
   padding: var(--standard-padding);
 }
