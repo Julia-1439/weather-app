@@ -88,7 +88,13 @@ form .loading-container {
   border-radius: 8px;
 }
 
-#content {
+#resolved-address {
+  font-weight: bold;
+  font-size: 2rem;
+  color: darkslategray;
+}
+
+#weather-cards-container {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

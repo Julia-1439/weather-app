@@ -7,7 +7,7 @@
 
 import * as apiControl from './apiControl.js';
 
-let currData = [];
+let currData = {};
 const NUM_DAYS_IN_ADVANCE = 2;
 
 /**
@@ -15,7 +15,7 @@ const NUM_DAYS_IN_ADVANCE = 2;
  * @returns {Array} a copy of the current data in storage
  */
 function readWeatherData() {
-  return [...currData];
+  return {...currData};
 }
 
 /**
@@ -36,19 +36,21 @@ async function getWeatherData(location) {
     });
   const processedData = processData(rawData);
 
-  currData = [...processedData];
+  currData = {...processedData};
   return readWeatherData();
 
   function processData(rawData) {
-    const desiredProps = ['datetime', 'tempmax', 'tempmin', 'precip', 'precipprob', 'description', 'icon'];
-    const processedData = rawData.days.map((dayData) => {
+    const processedData = {};
+    processedData.resolvedAddress = rawData.resolvedAddress;
+    processedData.days = rawData.days.map((dayData) => {
+      const desiredProps = ['datetime', 'tempmax', 'tempmin', 'precip', 'precipprob', 'description', 'icon'];
       let working;
       working = Object.fromEntries( // filter the day's data based on `desiredProps`
         Object.entries(dayData).filter(([key, _]) => desiredProps.includes(key))
       ); 
       working.tempunit = 'f';
       return working;
-    })
+    });
 
     return processedData;
   }
@@ -62,16 +64,16 @@ async function getWeatherData(location) {
  * unit. 
  */
 function swapTempUnitTo(unit) {
-  if (currData.length === 0) 
+  if (Object.entries(currData).length === 0) 
     return;
-  if (currData[0].tempunit === unit) 
+  if (currData.days[0].tempunit === unit) 
     return;
   
   const converter = {
     'c': convertToCelsius,
     'f': convertToFahrenheit,
   }[unit];
-  currData.forEach((day) => {
+  currData.days.forEach((day) => {
     day.tempmax = converter(day.tempmax);
     day.tempmin = converter(day.tempmin);
     day.tempunit = unit;

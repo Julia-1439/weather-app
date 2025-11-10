@@ -1,7 +1,8 @@
 import { format as dateFormatter } from 'date-fns';
 import * as coreControl from '../coreControl.js';
 
-const container = document.querySelector('#content');
+const resolvedAddress = document.querySelector('#resolved-address');
+const container = document.querySelector('#weather-cards-container');
 const fTempBtn = document.querySelector('#f-temp-btn');
 const cTempBtn = document.querySelector('#c-temp-btn');
 
@@ -19,10 +20,12 @@ cTempBtn.addEventListener('click', () => {
 
 async function render(data) {
   container.replaceChildren();
-  data.forEach((dayData) => renderDay(dayData)); // `data.forEach(renderDay)` produces unsorted results, for some reason 
+  resolvedAddress.textContent = `Forecast for: ${data.resolvedAddress}`;
+  data.days.forEach(async (dayData) => renderDay(dayData));  
 }
 
 async function renderDay(data) {
+  console.log(data);
   const card = document.createElement('div');
   card.classList.add('weather-card');
 
